@@ -1,10 +1,14 @@
 "use client"
 
-import { redirect } from "next/navigation";
 
-const Button = () => {
+import { useRouter } from "next/navigation";
+import React from "react";
+
+
+const Button = ({children, path}: {children: React.ReactNode, path:string}) => {
+    const router = useRouter();
     return (
-        <button onClick={() => redirect("/")}>Go Home</button>
+        <button onClick={() => router.push(path)}>{children}</button>
     );
 };
 
